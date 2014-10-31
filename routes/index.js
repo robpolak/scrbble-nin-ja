@@ -23,7 +23,8 @@ router.get('/starts/with/:word', function(req, res) {
     res.render('index', {title: 'Express'});
     return;
   }
-  res.render('startsWith/index', { word: word, results: words});
+  var title = 'Words Starting with the Letters: "' + word + '"';
+  res.render('wordView/wordView', { word: word, results: words, title: title});
 });
 
 router.get('/ends/with/:word', function(req, res) {
@@ -41,7 +42,8 @@ router.get('/ends/with/:word', function(req, res) {
     res.render('index', {title: 'Express'});
     return;
   }
-  res.render('endswith/index', { word: word, results: words});
+  var title = 'Words Starting with the Letters: "' + word + '"';
+  res.render('wordView/wordView', { word: word, results: words, title: title});
 });
 
 router.get('/contains/:word', function(req, res) {
@@ -59,12 +61,14 @@ router.get('/contains/:word', function(req, res) {
     res.render('index', {title: 'Express'});
     return;
   }
-  res.render('contains/index', { word: word, results: words});
+
+  var title = 'Words Starting with the Letters: "' + word + '"';
+  res.render('wordView/wordView', { word: word, results: words, title: title});
 });
 
 var sitemap = sm.createSitemap ({
   hostname: 'http://scrabble.ninja',
-  cacheTime: 1600000,        // 600 sec - cache purge period
+  cacheTime: 2600000,        // 600 sec - cache purge period
   urls: apiController.getSiteMapUrls()
 });
 

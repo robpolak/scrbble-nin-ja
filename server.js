@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var fileController = require('./src/fileController');
 
-fileController.readCompressedFile(path.join(__dirname, 'cachedScrabble.js.gz'), function(scrabbleObj) {
+fileController.readCompressedFile(path.join(__dirname, '/cache/cachedScrabble.js.gz'), function(scrabbleObj) {
     global.scrabbleObj = scrabbleObj;
 
     var routes = require('./routes/index');

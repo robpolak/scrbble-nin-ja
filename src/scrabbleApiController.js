@@ -42,12 +42,12 @@ module.exports = function() {
     function findWordsContaining(inputLetters) {
         inputLetters = inputLetters.toLowerCase();
         var words = [];
-        for(var x = 0, len =  global.scrabbleObj.words.length - 1; x <= len; x++) {
+        for (var x = 0, len = global.scrabbleObj.words.length - 1; x <= len; x++) {
             var word = global.scrabbleObj.words[x];
             var letterCopy = inputLetters;
-            for(var y = 0, iLen = word.length - 1; y <= iLen; y++) {
-                if(letterCopy.indexOf(word[y]) < 0) {
-                    if(letterCopy.indexOf("*") > -1) {
+            for (var y = 0, iLen = word.length - 1; y <= iLen; y++) {
+                if (letterCopy.indexOf(word[y]) < 0) {
+                    if (letterCopy.indexOf("*") > -1) {
                         letterCopy = removeFromArray(letterCopy, "*");
                     }
                     else {
@@ -58,7 +58,7 @@ module.exports = function() {
                     letterCopy = removeFromArray(letterCopy, word[y]);
                 }
 
-                if(y === iLen){
+                if (y === iLen) {
                     words.push(word);
                 }
             }
@@ -83,11 +83,12 @@ module.exports = function() {
 
     function getSiteMapUrls() {
         var urls = [];
-        _.each(global.scrabbleObj.startsWith, function(item, name) {
-            urls.push({ url: '/starts/with/'+name,  changefreq: 'daily', priority: 0.5 });
+        urls.push({url: '/', changefreq: 'daily', priority: 1});
+        _.each(global.scrabbleObj.startsWith, function (item, name) {
+            urls.push({url: '/starts/with/' + name, changefreq: 'daily', priority: 0.5});
         });
-        _.each(global.scrabbleObj.endsWith, function(item, name) {
-            urls.push({ url: '/ends/with/'+name,  changefreq: 'daily', priority: 0.5 });
+        _.each(global.scrabbleObj.endsWith, function (item, name) {
+            urls.push({url: '/ends/with/' + name, changefreq: 'daily', priority: 0.5});
         });
 
         return urls;
@@ -95,10 +96,10 @@ module.exports = function() {
 
     function groupByLength(arr) {
         var toRet = {};
-        _.each(arr, function(item) {
-            var len = 'len'+item.length;
+        _.each(arr, function (item) {
+            var len = 'len' + item.length;
             var arrItem = toRet[len]
-            if(!arrItem) {
+            if (!arrItem) {
                 var obj = {
                     length: item.length,
                     words: []
@@ -109,14 +110,14 @@ module.exports = function() {
             arrItem.words.push(item);
         });
 
-        toRet = _.sortBy(toRet, function(item) {
+        toRet = _.sortBy(toRet, function (item) {
             return item.length;
         });
         return toRet;
     }
 
     return {
-        findWordsStartingWith:findWordsStartingWith,
+        findWordsStartingWith: findWordsStartingWith,
         findWordsEndingWith: findWordsEndingWith,
         findWordsContaining: findWordsContaining,
         getSiteMapUrls: getSiteMapUrls

@@ -13,3 +13,15 @@ a {
 .wordblock {
 
 }
+
+.logo {
+  position: relative;
+  top: -10px;
+}
+.logo img {
+  height: 70px;
+}
+
+.content {
+  padding-top: 10px;
+}
