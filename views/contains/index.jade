@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+    div(class="container")
+        h1 Words Containing #{word}
+        each item in results
+            div(class="col-lg-8 row")
+                h3 #{item.length} Length Words
+                div(class='wordblock ')
+                    each word in item.words
+                        div(class='word col-lg-2') #{word}
