@@ -1,1 +1,16 @@
 
+
+form(role='form')
+    div(class='form-group')
+        label(for='exampleInputEmail1')
+        div(class='input-group-btn')
+            button(type='button' class='btn btn-default' tabindex='-1') Stars
+            button(type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' tabindex='-1' aria-expanded='false')
+                span(class='caret')
+                span(class='sr-only') Toggle Dropdown
+            ul(class='dropdown-menu' role='menu')
+                li
+                    a(href='#') Starts With
+                    a(href='#') Ends With
+                    a(href='#') Contains
+        input(type='email' class='form-control' id='exampleInputEmail1' placeholder='Enter email')

@@ -5,6 +5,7 @@ html
       block title
         title Scrabble.Ninja
       block meta
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
         meta(name='description', content='')
         meta(name='keywords', content='')
     title= title
@@ -14,6 +15,7 @@ html
     include header
 
     div(class="content")
+      include userControls/search
       block content
 
     include footer
