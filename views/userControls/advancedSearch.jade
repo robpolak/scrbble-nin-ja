@@ -1,5 +1,5 @@
 div(class="col-sm-12")
-    div(class="panel-group col-sm-5" id="accordion")
+    div(class="panel-group col-sm-7" id="accordion")
         div(class="panel panel-default")
             div(class="panel-heading")
                 h4(class="panel-title")
@@ -7,4 +7,19 @@ div(class="col-sm-12")
                         i(class="indicator glyphicon glyphicon-chevron-down  pull-right")
             div(id="collapseOne" class="panel-collapse collapsed collapse" aria-expanded="false" style="height:0px;")
                 div(class="panel-body")
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    div(class="form-group")
+                        label(class="col-sm-3 control-label") Starts With
+                        div(class="col-sm-3")
+                            input(type='text' class='form-control' name='advStartsWith')
+                    div(class="form-group")
+                        label(class="col-sm-3 control-label") Ends With
+                        div(class="col-sm-3")
+                            input(type='text' class='form-control' name='advEndsWith')
+                    div(class="form-group")
+                        label(class="col-sm-3 control-label") Contains
+                        div(class="col-sm-3")
+                            input(type='text' class='form-control' name='advContains')
+                    div(class="form-group")
+                        label(class="col-sm-3 control-label") Minimum Score
+                        div(class="col-sm-3")
+                            input(type='text' class='form-control' name='advMinScore')
