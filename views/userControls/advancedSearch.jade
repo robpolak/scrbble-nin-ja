@@ -24,6 +24,6 @@ div(class="col-sm-12")
                         div(class="col-sm-3")
                             input(type='text' class='form-control' name='advMinScore' value='#{minScore}')
 
-if (startsWith.length > 0 || endsWith.length > 0 || contains.length > 0 || minScore.length > 0)
+if ( (startsWith && startsWith.length > 0) || (endsWith && endsWith.length > 0) || (contains && contains.length > 0) || (minScore && minScore.length > 0) )
     script.
         $('#collapseOne').removeClass('collapse');
