@@ -5,21 +5,25 @@ div(class="col-sm-12")
                 h4(class="panel-title")
                     a(class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne") Advanced Search
                         i(class="indicator glyphicon glyphicon-chevron-down  pull-right")
-            div(id="collapseOne" class="panel-collapse collapsed collapse" aria-expanded="false" style="height:0px;")
+            div(id="collapseOne" class="panel-collapse collapse")
                 div(class="panel-body")
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Starts With
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advStartsWith')
+                            input(type='text' class='form-control' name='advStartsWith' value='#{startsWith}')
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Ends With
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advEndsWith')
+                            input(type='text' class='form-control' name='advEndsWith' value='#{endsWith}')
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Contains
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advContains')
+                            input(type='text' class='form-control' name='advContains' value='#{contains}')
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Minimum Score
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advMinScore')
+                            input(type='text' class='form-control' name='advMinScore' value='#{minScore}')
+
+if (startsWith.length > 0 || endsWith.length > 0 || contains.length > 0 || minScore.length > 0)
+    script.
+        $('#collapseOne').removeClass('collapse');

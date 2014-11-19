@@ -54,7 +54,14 @@ router.get('/starts/with/:word', function(req, res) {
     return;
   }
   var title = 'Words Starting with the Letters: "' + word + '"';
-  res.render('wordView/wordView', { word: word, results: words, title: title});
+  res.render('wordView/wordView', {
+    word: word, results: words,
+    title: title,
+    startsWith: req.query.startsWith || '',
+    endsWith: req.query.endsWith || '',
+    minScore: req.query.minScore || '',
+    contains: req.query.contains || ''
+  });
 });
 
 router.get('/ends/with/:word', function(req, res) {
@@ -73,7 +80,14 @@ router.get('/ends/with/:word', function(req, res) {
     return;
   }
   var title = 'Words Ending with the Letters: "' + word + '"';
-  res.render('wordView/wordView', { word: word, results: words, title: title});
+  res.render('wordView/wordView', {
+    word: word, results: words,
+    title: title,
+    startsWith: req.query.startsWith || '',
+    endsWith: req.query.endsWith || '',
+    minScore: req.query.minScore || '',
+    contains: req.query.contains || ''
+  });
 });
 
 router.get('/contains/:word', function(req, res) {
@@ -93,7 +107,15 @@ router.get('/contains/:word', function(req, res) {
   }
 
   var title = 'Words Starting with the Letters: "' + word + '"';
-  res.render('wordView/wordView', { word: word, results: words, title: title});
+
+  res.render('wordView/wordView', {
+    word: word, results: words,
+    title: title,
+    startsWith: req.query.startsWith || '',
+    endsWith: req.query.endsWith || '',
+    minScore: req.query.minScore || '',
+    contains: req.query.contains || ''
+  });
 });
 
 var sitemap = sm.createSitemap ({
