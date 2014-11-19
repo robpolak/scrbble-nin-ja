@@ -79,7 +79,7 @@ router.get('/ends/with/:word', function(req, res) {
     res.render('index', {});
     return;
   }
-  var title = 'Words Ending with the Letters: "' + word + '"';
+  var title = 'Find Scrabble words ending with the Letters: "' + word + '"';
   res.render('wordView/wordView', {
     word: word, results: words,
     title: title,
@@ -106,7 +106,7 @@ router.get('/contains/:word', function(req, res) {
     return;
   }
 
-  var title = 'Words Starting with the Letters: "' + word + '"';
+  var title = 'Find scrabble that contains the letters: "' + word + '"';
 
   res.render('wordView/wordView', {
     word: word, results: words,
