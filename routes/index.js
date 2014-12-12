@@ -6,7 +6,10 @@ var _ = require('underscore');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { word:''  });
+  res.render('index', { word:'',startsWith: '',
+    endsWith:  '',
+    minScore: '',
+    contains: ''  });
 });
 
 router.post('/search', function(req, res) {
@@ -134,37 +137,41 @@ router.get('/sitemap.xml', function(req, res) {
 function filterBasedOnQuery(queryString,data) {
   var toRet = data;
   _.each(toRet, function(letterGroup,y) {
-    _.each(letterGroup.words, function(wordObj, i) {
-
+    var matchingWords = [];
+    for(var i = 0,len=letterGroup.words.length;i < len;i++) {
+      var wordObj = letterGroup.words[i];
+      var matches = true;
       if(wordObj && wordObj.word) {
-
-
         if (queryString.contains) {
           if (wordObj.word.indexOf(queryString.contains) < 0) {
-            toRet[y].words.splice(i);
+            matches = false;
           }
         }
         if (queryString.endsWith) {
           if (!wordObj.word.endsWith(queryString.endsWith)) {
-            toRet[y].words.splice(i);
+            matches = false;
           }
         }
         if (queryString.startsWith) {
           if (!wordObj.word.startsWith(queryString.startsWith)) {
-            toRet[y].words.splice(i);
+            matches = false;
           }
         }
         if (queryString.minScore) {
           if (wordObj.score.scrabbleScore < queryString.minScore && wordObj.score.wwfScore < queryString.minScore) {
-            toRet[y].words.splice(i);
+            matches = false;
           }
         }
       }
-    });
+      if(matches) {
+        matchingWords.push(wordObj);
+      }
+    }
+    letterGroup.words = matchingWords || [];
   });
   _.each(toRet, function(letterGroup, i) {
     if(!letterGroup || !letterGroup.words || letterGroup.words.length === 0) {
-      toRet.splice(i);
+      toRet.splice(i,1);
     }
   });
 
