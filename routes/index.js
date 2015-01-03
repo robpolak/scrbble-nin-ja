@@ -31,12 +31,13 @@ router.get('/starts/with/:word', function(req, res) {
   if(result) {
     words = result;
   }
-  else {
+ else {
     res.render('index', {title: 'Express'});
     return;
   }
-  var title = 'Words Starting with the Letters: "' + word + '"';
-  res.render('wordView/wordView', { word: word, results: words, title: title});
+  var prettyQuery = 'starts with';
+  var title = 'Words Starting with the Letters: ' + word + '';
+  res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:'start with', meta: getMeta(word,prettyQuery)});
 });
 
 router.get('/ends/with/:word', function(req, res) {
@@ -54,8 +55,9 @@ router.get('/ends/with/:word', function(req, res) {
     res.render('index', {title: 'Express'});
     return;
   }
-  var title = 'Words Ending with the Letters: "' + word + '"';
-  res.render('wordView/wordView', { word: word, results: words, title: title});
+  var prettyQuery = 'ends with';
+  var title = 'Words Ending with the Letters: ' + word + '';
+  res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:'end with', meta: getMeta(word,prettyQuery)});
 });
 
 router.get('/contains/:word', function(req, res) {
@@ -73,9 +75,9 @@ router.get('/contains/:word', function(req, res) {
     res.render('index', {title: 'Express'});
     return;
   }
-
-  var title = 'Words Starting with the Letters: "' + word + '"';
-  res.render('wordView/wordView', { word: word, results: words, title: title});
+  var prettyQuery = 'contains';
+  var title = 'Words Starting with the Letters: ' + word + '';
+  res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:'contains', meta: getMeta(word,prettyQuery)});
 });
 
 var sitemap = sm.createSitemap ({
@@ -91,6 +93,17 @@ router.get('/sitemap.xml', function(req, res) {
   });
 });
 
+router.get('/words/start', function(req, res) {
+  var words = apiController.getStartsWithUrls();
+  res.render('wordView/metaWords', { words: words});
+});
+
+router.get('/words/end', function(req, res) {
+  var words = apiController.getEndsWithUrls();
+  res.render('wordView/metaWords', { words: words});
+});
+
+
 function filterBasedOnQuery(query,data) {
   var toRet = data;
 
@@ -102,5 +115,15 @@ function filterBasedOnQuery(query,data) {
   return toRet;
 }
 
-
+function getMeta(search, prettyQuery) {
+  var description = '';
+  description = 'Words that '+prettyQuery+' '+search+', words '+prettyQuery+'ing '+search+'';
+  var keywords = [];
+  keywords.push(search);
+  keywords.push('Words that '+prettyQuery+' '+search);
+  return {
+    description: description,
+    keywords: keywords
+  };
+}
 module.exports = router;

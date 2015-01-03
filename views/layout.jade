@@ -6,8 +6,15 @@ html
         title Scrabble.Ninja
       block meta
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        meta(name='description', content='')
-        meta(name='keywords', content='')
+        if meta && meta.description
+          meta(name='description', content='#{meta.description}')
+        else
+          meta(name='description', content='Scrabble Ninja is your definitive resource for finding scrabble words.  This site supports finding words using various search techniques.')
+        if meta && meta.keywords
+          meta(name='keywords', content='#{meta.keywords}')
+        else
+          meta(name='keywords', content='scrabble,word,finder,cheat,scrabble cheat,scrabble dictionary')
+
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cerulean/bootstrap.min.css')
@@ -15,8 +22,7 @@ html
     include header
 
     div(class="content")
-      include userControls/search
-    block content
+      block content
 
     include footer
   script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')

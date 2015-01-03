@@ -93,6 +93,39 @@ module.exports = function() {
 
         return urls;
     }
+
+    function getStartsWithUrls() {
+        var urls = [];
+        _.each(global.scrabbleObj.startsWith, function (item, name) {
+            urls.push({url: '/starts/with/' + name, word:name});
+        });
+
+        return urls;
+    }
+
+    function getContainsUrls() {
+        var urls = [];
+        _.each(global.scrabbleObj.startsWith, function (item, name) {
+            urls.push(getContainsVariants(item));
+        });
+
+        return urls;
+    }
+    function getContainsVariants(word) {
+        _.each(word, function (item, name) {
+            urls.push({url: '/ends/with/' + name, word:name});
+        });
+    }
+
+    function getEndsWithUrls() {
+        var urls = [];
+        _.each(global.scrabbleObj.endsWith, function (item, name) {
+            urls.push({url: '/ends/with/' + name, word:name});
+        });
+
+        return urls;
+    }
+
 var scrabbleValues = {
   A : 1,
   B : 3,
@@ -193,6 +226,8 @@ var scrabbleValues = {
         findWordsStartingWith: findWordsStartingWith,
         findWordsEndingWith: findWordsEndingWith,
         findWordsContaining: findWordsContaining,
-        getSiteMapUrls: getSiteMapUrls
+        getSiteMapUrls: getSiteMapUrls,
+        getStartsWithUrls:getStartsWithUrls,
+        getEndsWithUrls: getEndsWithUrls
     };
 }();

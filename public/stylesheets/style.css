@@ -25,3 +25,13 @@ a {
 .content {
   margin-top: 30px;
 }
+
+@media (max-width: 329px) {
+  .navbar-brand img {
+    width: 230px;
+    height: 54px;
+  }
+  .navbar-brand {
+   padding-left: 2px !important;
+  }
+}
