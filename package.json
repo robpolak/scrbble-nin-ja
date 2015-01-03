@@ -15,5 +15,17 @@
     "serve-favicon": "~2.1.3",
     "sitemap": "^0.7.4",
     "underscore": "^1.7.0"
-  }
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robpolak/scrbble-nin-ja.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robpolak/scrbble-nin-ja/issues"
+  },
+  "homepage": "https://github.com/robpolak/scrbble-nin-ja"
 }

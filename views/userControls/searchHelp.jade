@@ -1,0 +1,18 @@
+div(class="col-sm-12")
+   div(class="panel-group col-sm-12" id="accordion")
+      div(class="panel panel-default")
+         div(class="panel-heading")
+            h4(class="panel-title")
+               a(class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp") Search Help
+                  i(class="indicator glyphicon glyphicon-chevron-down  pull-right")
+         div(id="collapseHelp" class="panel-collapse collapse")
+            div(class="panel-body")
+               h5 Contains Searches
+                  h6
+                     p - This type of search will match *all* words in your query, for example if you search with the letters "gof"  you would get a word like "fog" back, and NOT "foggy".
+                     p - Use an asterik to indicate a wildcard (? tile) within your search
+               h5 Starts With
+                  h6 This is a search that starts a phrase, for example if you search for "fog" you will get words like "foggy" back.
+               h5 Ends With
+                  h6 Exactly like a "Starts With" query except it is for the end of the word.  For example, the search on "ggy" would return "foggy"
+
