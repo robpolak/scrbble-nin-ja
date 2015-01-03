@@ -5,7 +5,7 @@ var apiController = require('../src/scrabbleApiController');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { word: '' });
 });
 
 router.post('/search', function(req, res) {
