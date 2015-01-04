@@ -84,6 +84,9 @@ module.exports = function() {
     function getSiteMapUrls() {
         var urls = [];
         urls.push({url: '/', changefreq: 'daily', priority: 1});
+        urls.push({url: '/words/start', changefreq: 'daily', priority: 1});
+        urls.push({url: '/words/end', changefreq: 'daily', priority: 1});
+
         _.each(global.scrabbleObj.startsWith, function (item, name) {
             urls.push({url: '/starts/with/' + name, changefreq: 'daily', priority: 0.5});
         });
