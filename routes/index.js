@@ -103,16 +103,7 @@ router.get('/words/end', function(req, res) {
   res.render('wordView/metaWords', { words: words});
 });
 
-function checkDomain(req,res,next) {
-  if(req && req.headers && req.headers.host) {
-    if(req.headers.host == 'www.scrabble.ninja') {
-      res.redirect(301, 'http://scrabble.ninja');
-      return;
-    }
-  }
-  next();
-}
-router.use(checkDomain)
+
 
 function filterBasedOnQuery(query,data) {
   var toRet = data;
