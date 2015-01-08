@@ -88,10 +88,10 @@ module.exports = function() {
         urls.push({url: '/words/end', changefreq: 'daily', priority: 1});
 
         _.each(global.scrabbleObj.startsWith, function (item, name) {
-            urls.push({url: '/starts/with/' + name, changefreq: 'daily', priority: 0.5});
+            urls.push({url: '/words/starting/with/' + name, changefreq: 'daily', priority: 0.5});
         });
         _.each(global.scrabbleObj.endsWith, function (item, name) {
-            urls.push({url: '/ends/with/' + name, changefreq: 'daily', priority: 0.5});
+            urls.push({url: '/words/ending/with/' + name, changefreq: 'daily', priority: 0.5});
         });
 
         return urls;
@@ -100,30 +100,17 @@ module.exports = function() {
     function getStartsWithUrls() {
         var urls = [];
         _.each(global.scrabbleObj.startsWith, function (item, name) {
-            urls.push({url: '/starts/with/' + name, word:name});
+            urls.push({url: '/words/starting/with/' + name, word:name});
         });
 
         return urls;
     }
 
-    function getContainsUrls() {
-        var urls = [];
-        _.each(global.scrabbleObj.startsWith, function (item, name) {
-            urls.push(getContainsVariants(item));
-        });
-
-        return urls;
-    }
-    function getContainsVariants(word) {
-        _.each(word, function (item, name) {
-            urls.push({url: '/ends/with/' + name, word:name});
-        });
-    }
 
     function getEndsWithUrls() {
         var urls = [];
         _.each(global.scrabbleObj.endsWith, function (item, name) {
-            urls.push({url: '/ends/with/' + name, word:name});
+            urls.push({url: '/words/ending/with/' + name, word:name});
         });
 
         return urls;

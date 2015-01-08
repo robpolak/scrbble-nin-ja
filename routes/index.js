@@ -14,13 +14,34 @@ router.post('/search', function(req, res) {
   if(searchType === 'contains')
     res.redirect('/contains/'+ searchQuery);
   else if(searchType === 'startswith')
-    res.redirect('/starts/with/'+ searchQuery);
+    res.redirect('/words/starting/with/'+ searchQuery);
   else if(searchType === 'endswith')
-    res.redirect('/ends/with/'+ searchQuery);
+    res.redirect('/words/ending/with/'+ searchQuery);
   return;
 });
 
 router.get('/starts/with/:word', function(req, res) {
+ return startsWith(req,res);
+});
+router.get('/words/starting/with/:word', function(req, res) {
+  return startsWith(req,res);
+});
+router.get('/words/starts/with/:word', function(req, res) {
+  return startsWith(req,res);
+});
+
+
+router.get('/ends/with/:word', function(req, res) {
+  return endsWith(req,res);
+});
+router.get('/words/ending/with/:word', function(req, res) {
+  return endsWith(req,res);
+});
+router.get('/words/ends/with/:word', function(req, res) {
+  return endsWith(req,res);
+});
+
+function startsWith(req,res) {
   var word = req.params.word
   if(!word) {
     res.render('index', {title: 'Express'});
@@ -31,16 +52,16 @@ router.get('/starts/with/:word', function(req, res) {
   if(result) {
     words = result;
   }
- else {
+  else {
     res.render('index', {title: 'Express'});
     return;
   }
   var prettyQuery = 'starts with';
   var title = 'Words Starting with the Letters: ' + word + '';
   res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:'start with', meta: getMeta(word,prettyQuery)});
-});
+}
 
-router.get('/ends/with/:word', function(req, res) {
+function endsWith(req,res) {
   var word = req.params.word
   if(!word) {
     res.render('index', {title: 'Express'});
@@ -58,7 +79,7 @@ router.get('/ends/with/:word', function(req, res) {
   var prettyQuery = 'ends with';
   var title = 'Words Ending with the Letters: ' + word + '';
   res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:'end with', meta: getMeta(word,prettyQuery)});
-});
+}
 
 router.get('/contains/:word', function(req, res) {
   var word = req.params.word
