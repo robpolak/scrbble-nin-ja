@@ -3,8 +3,9 @@ extends ../layout
 block content
     div(class="container")
         h1 #{title}
-        h3
+        h4
             | A list of words that #{prettyQuery} with #{word} (words which are the partial form of #{word}). We search the official scrabble dictionary for scrabble words starting with #{word} - we take the letter or word you enter, and generate all words starting with #{word}. In addition there is a list of Words that end with #{word}, words that contain #{word}, and Synonyms of #{word}.
+        include ../userControls/search
         each item in results
             div(class="col-lg-12 row")
                 h3 #{item.length} Letter Words
