@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c676c84-52c1-49f4-9f61-39e12a5e8895" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/userControls/search.jade" afterPath="$PROJECT_DIR$/views/userControls/search.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/wordView/wordView.jade" afterPath="$PROJECT_DIR$/views/wordView/wordView.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scrbble-nin-ja.iws" />
@@ -534,7 +532,13 @@
       <option name="project" value="LOCAL" />
       <updated>1421177615311</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="asd">
+      <created>1421178843898</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1421178843898</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
