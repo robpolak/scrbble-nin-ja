@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c676c84-52c1-49f4-9f61-39e12a5e8895" name="Default" comment="asd">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/headerTopStrip.jade" afterPath="$PROJECT_DIR$/views/headerTopStrip.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scrabbleApiController.js" afterPath="$PROJECT_DIR$/src/scrabbleApiController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/wordView/wordView.jade" afterPath="$PROJECT_DIR$/views/wordView/wordView.jade" />
+    <list default="true" id="5c676c84-52c1-49f4-9f61-39e12a5e8895" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scrbble-nin-ja.iws" />
@@ -77,8 +72,8 @@
       <file leaf-file-name="scrabbleApiController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53535354" vertical-offset="1960" max-vertical-offset="3043">
-              <caret line="188" column="8" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.57239056" vertical-offset="0" max-vertical-offset="3043">
+              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding>
                 <element signature="e#3487#3727#0" expanded="false" />
                 <element signature="e#3760#4053#0" expanded="false" />
@@ -510,7 +505,13 @@
       <option name="project" value="LOCAL" />
       <updated>1421167005562</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="asd">
+      <created>1421168326128</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1421168326128</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -993,8 +994,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53535354" vertical-offset="1960" max-vertical-offset="3043">
-          <caret line="188" column="8" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.57239056" vertical-offset="0" max-vertical-offset="3043">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
             <element signature="e#3487#3727#0" expanded="false" />
             <element signature="e#3760#4053#0" expanded="false" />
