@@ -5,23 +5,46 @@ div(class="col-sm-12")
                 h4(class="panel-title")
                     a(class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne") Advanced Search
                         i(class="indicator glyphicon glyphicon-chevron-down  pull-right")
-            div(id="collapseOne" class="panel-collapse collapsed collapse" aria-expanded="false" style="height:0px;")
+            div(id="collapseOne" class="collapse")
                 div(class="panel-body")
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Starts With
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advStartsWith')
+                            input#advStartsWith(type='text' class='form-control' name='advStartsWith' value="#{filter.startsWith || ''}" )
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Ends With
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advEndsWith')
+                            input#advEndsWith(type='text' class='form-control' name='advEndsWith' value="#{filter.endsWith || ''}" )
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Contains
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advContains')
+                            input#advContains(type='text' class='form-control' name='advContains' value="#{filter.contains || ''}" )
                     div(class="form-group")
                         label(class="col-sm-3 control-label") Minimum Score
                         div(class="col-sm-3")
-                            input(type='text' class='form-control' name='advMinScore')
-                button.btn.btn-success(type='submit')
-                    i.fa.fa-search &nbsp; Search
+                            input#advMinScore(type='text' class='form-control' name='advMinScore' value="#{filter.minScore || ''}" )
+                div
+                    button.btn.btn-success(type='submit')
+                        i.fa.fa-search &nbsp; Search
+                    a.btn.btn-danger.btn-clear-adv(href="#")
+                        i.fa.fa-close &nbsp; Clear
+        script.
+            $( document ).ready(function() {
+                var hasQueryData = getLen($('#advStartsWith').val()) > 0 || getLen($('#advEndsWith').val()) > 0 || getLen($('#advContains').val()) > 0 || getLen($('#advMinScore').val()) > 0;
+                if(hasQueryData) {
+                    $('#collapseOne').removeClass('collapse')
+                }
+
+                $('.btn-clear-adv').click(function() {
+                    $('#advEndsWith').val('');
+                    $('#advStartsWith').val('');
+                    $('#advContains').val('');
+                    $('#advMinScore').val('');
+                    $('#collapseOne').addClass('collapse').height('0px');
+                });
+            });
+            function getLen(item) {
+                if(item && item.length)
+                    return item.length;
+                return false;
+            }

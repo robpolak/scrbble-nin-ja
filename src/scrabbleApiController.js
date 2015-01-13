@@ -1,7 +1,7 @@
 var _ = require('underscore');
 module.exports = function() {
 
-    function findWordsStartingWith(word) {
+    function findWordsStartingWith(word, filter) {
         var prefix = '';
         if (word.length == 1)
             prefix = word;
@@ -14,13 +14,13 @@ module.exports = function() {
         if (arr) {
             var subarry = arr[word];
             if (subarry) {
-                return groupByLength(subarry.words);
+                return groupByLength(subarry.words, filter);
             }
         }
         return;
     }
 
-    function findWordsEndingWith(word) {
+    function findWordsEndingWith(word, filter) {
         var prefix = '';
         if (word.length == 1)
             prefix = word;
@@ -33,13 +33,13 @@ module.exports = function() {
         if (arr) {
             var subarry = arr[word];
             if (subarry) {
-                return groupByLength(subarry.words);
+                return groupByLength(subarry.words, filter);
             }
         }
         return;
     }
 
-    function findWordsContaining(inputLetters) {
+    function findWordsContaining(inputLetters, filter) {
         inputLetters = inputLetters.toLowerCase();
         var words = [];
         for (var x = 0, len = global.scrabbleObj.words.length - 1; x <= len; x++) {
@@ -65,7 +65,7 @@ module.exports = function() {
 
         }
 
-        return groupByLength(words);
+        return groupByLength(words, filter);
     }
 
     function removeFromArray(arr, letter) {
@@ -189,7 +189,7 @@ var scrabbleValues = {
 
     }
 
-    function groupByLength(arr) {
+    function groupByLength(arr, filter) {
         var toRet = {};
         _.each(arr, function (item) {
             var len = 'len' + item.length;
@@ -207,12 +207,52 @@ var scrabbleValues = {
               word: item,
               score: score
             }
-            arrItem.words.push(word);
+            if(passesFilter(word, filter)) {
+                arrItem.words.push(word);
+            }
+        });
+        _.each(toRet, function(grp, index) {
+            if (grp.words.length > 0) {
+                grp.words = _.sortBy(grp.words, function (grpItem) {
+                    return -grpItem.score.wwfScore;
+                });
+            }
+            else {
+                delete toRet[index];
+            }
         });
 
         toRet = _.sortBy(toRet, function (item) {
             return -item.length;
         });
+        return toRet;
+    }
+
+    function passesFilter(item, filter) {
+        var toRet = true;
+        var word = item.word;
+        if(filter.startsWith) {
+            if(word.indexOf(filter.startsWith) != 0) {
+                toRet = false;
+            }
+        }
+        if(filter.endsWith) {
+            var expectedPos = word.length - filter.endsWith.length;
+            if(word.indexOf(filter.endsWith) != expectedPos || expectedPos < 0) {
+                toRet = false;
+            }
+        }
+        if(filter.minScore) {
+            if(item.score.wwfScore < filter.minScore && item.score.scrabbleScore < filter.minScore)
+            {
+                toRet = false;
+            }
+        }
+        if(filter.contains) {
+            if(word.indexOf(filter.contains) < 0) {
+                toRet = false;
+            }
+        }
         return toRet;
     }
 
