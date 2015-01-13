@@ -4,21 +4,33 @@ block content
     div(class="container")
         h1 #{title}
         h4
-            | A list of words that #{prettyQuery} with #{word} (words which are the partial form of #{word}). We search the official scrabble dictionary for scrabble words starting with #{word} - we take the letter or word you enter, and generate all words starting with #{word}. In addition there is a list of Words that end with #{word}, words that contain #{word}, and Synonyms of #{word}.
+            | A list of words that #{prettyQuery} with #{word} (words which are the partial form of #{word}).
         include ../userControls/search
-        each item in results
-            div(class="col-lg-12 row")
-                h3 #{item.length} Letter Words
-                div(class="col-lg-6")
-                    table(class="table table-striped")
-                        thead
-                            tr
-                                td Word
-                                td Scrabble Score
-                                td Words With Friends Score
-                        each wordObj in item.words
-                            tr
-                                td #{wordObj.word}
-                                td #{wordObj.score.scrabbleScore}
-                                td #{wordObj.score.wwfScore}
+        div#results
+            h3 Word Search Results
+            if results && results.length > 0
+                each item in results
+                    div(class="col-lg-12 row")
+                        h3 #{item.length} Letter Words
+                        div(class="col-lg-6")
+                            table(class="table table-striped")
+                                thead
+                                    tr
+                                        td Word
+                                        td Scrabble Score
+                                        td Words With Friends Score
+                                each wordObj in item.words
+                                    tr
+                                        td #{wordObj.word}
+                                        td #{wordObj.score.scrabbleScore}
+                                        td #{wordObj.score.wwfScore}
+            else
+                h4 Sorry we could not find any word combinations :(
+        div We search the official scrabble dictionary for scrabble words starting with #{word} - we take the letter or word you enter, and generate all words starting with #{word}. In addition there is a list of Words that end with #{word}, words that contain #{word}, and Synonyms of #{word}.
+    script.
+        $( document ).ready(function() {
 
+            $('html, body').animate({
+                scrollTop: $("#results").offset().top - 60
+            }, 1200);
+        });

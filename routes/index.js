@@ -52,10 +52,6 @@ function startsWith(req,res) {
   if(result) {
     words = result;
   }
-  else {
-    res.render('index', {title: 'Express'});
-    return;
-  }
   var prettyQuery = 'start with';
   var title = 'Words Starting with the Letters: ' + word + '';
   res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:prettyQuery, meta: getMeta(word,prettyQuery)});
@@ -72,10 +68,7 @@ function endsWith(req,res) {
   if(result) {
     words = filterBasedOnQuery(req.query,result);
   }
-  else {
-    res.render('index', {title: 'Express'});
-    return;
-  }
+
   var prettyQuery = 'ends with';
   var title = 'Words Ending with the Letters: ' + word + '';
   res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:'end with', meta: getMeta(word,prettyQuery)});
@@ -130,7 +123,6 @@ function filterBasedOnQuery(query,data) {
   var toRet = data;
 
   if(query.contains) {
-      var arr;
 
   }
 

@@ -185,6 +185,10 @@ var scrabbleValues = {
       return toRet;
     }
 
+    function getBestScoringWords() {
+
+    }
+
     function groupByLength(arr) {
         var toRet = {};
         _.each(arr, function (item) {
