@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding-top: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -19,19 +19,21 @@ a {
   top: -10px;
 }
 .logo img {
-  height: 70px;
+  height: 40px;
 }
 
 .content {
   margin-top: 30px;
 }
 
+
 @media (max-width: 329px) {
+  .container {
+    width: 300px;
+  }
   .navbar-brand img {
-    width: 230px;
-    height: 54px;
+
   }
   .navbar-brand {
-   padding-left: 2px !important;
   }
 }
