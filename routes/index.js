@@ -44,7 +44,7 @@ router.get('/words/ends/with/:word', function(req, res) {
 function startsWith(req,res) {
   var word = req.params.word
   if(!word) {
-    res.render('index', {title: 'Express'});
+    res.render('index', {title: ''});
     return;
   }
   var result = apiController.findWordsStartingWith(word);
@@ -56,9 +56,9 @@ function startsWith(req,res) {
     res.render('index', {title: 'Express'});
     return;
   }
-  var prettyQuery = 'starts with';
+  var prettyQuery = 'start with';
   var title = 'Words Starting with the Letters: ' + word + '';
-  res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:'start with', meta: getMeta(word,prettyQuery)});
+  res.render('wordView/wordView', { word: word, results: words, title: title, prettyQuery:prettyQuery, meta: getMeta(word,prettyQuery)});
 }
 
 function endsWith(req,res) {
@@ -138,11 +138,16 @@ function filterBasedOnQuery(query,data) {
 }
 
 function getMeta(search, prettyQuery) {
-  var description = '';
-  description = 'Words that '+prettyQuery+' '+search+', words '+prettyQuery+'ing '+search+'';
+  description = 'Find Scrabble Words that '+prettyQuery+' '+search+', words '+prettyQuery+'ing '+search+'';
   var keywords = [];
   keywords.push(search);
   keywords.push('Words that '+prettyQuery+' '+search);
+  if(prettyQuery === 'start with') {
+    keywords.push('Words starting with '+search);
+  }
+  if(prettyQuery === 'end with') {
+    keywords.push('Words ending with '+search);
+  }
   return {
     description: description,
     keywords: keywords
