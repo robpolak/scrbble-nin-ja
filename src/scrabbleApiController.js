@@ -185,8 +185,24 @@ var scrabbleValues = {
       return toRet;
     }
 
-    function getBestScoringWords() {
+    function getBestScoringWords(words) {
+        return words;
+        var maxWords = 7;
+        var arr = [];
+        var highScores = [];
 
+        _.each(words, function(grp, index) {
+            if (grp.words.length > 0) {
+                var avg = _.reduce(grp.words, function(sum, word) {
+                    sum + word.score.scrabbleScore
+                }, 0) / grp.words.length
+                highScores.push(avg);
+            }
+            else {
+                delete toRet[index];
+            }
+        });
+        return words;
     }
 
     function groupByLength(arr, filter) {
@@ -225,6 +241,7 @@ var scrabbleValues = {
         toRet = _.sortBy(toRet, function (item) {
             return -item.length;
         });
+        toRet = getBestScoringWords(toRet);
         return toRet;
     }
 
