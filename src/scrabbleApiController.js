@@ -181,27 +181,40 @@ var scrabbleValues = {
       _.each(word, function(letter) {
         toRet.scrabbleScore = toRet.scrabbleScore + scrabbleValues[letter.toUpperCase()];
         toRet.wwfScore = toRet.wwfScore + wordsWithFriendsValues[letter.toUpperCase()];
+        toRet.aggregateScore = (toRet.scrabbleScore + toRet.wwfScore) / 2;
+        toRet.hottnessScore = (toRet.aggregateScore / word.length) * toRet.aggregateScore;
       });
       return toRet;
     }
 
     function getBestScoringWords(words) {
-        return words;
-        var maxWords = 7;
+        var maxWords = 5;
         var arr = [];
-        var highScores = [];
+        var wordsArr = [];
 
         _.each(words, function(grp, index) {
             if (grp.words.length > 0) {
-                var avg = _.reduce(grp.words, function(sum, word) {
-                    sum + word.score.scrabbleScore
-                }, 0) / grp.words.length
-                highScores.push(avg);
+
+              wordsArr = wordsArr.concat(grp.words);
             }
-            else {
-                delete toRet[index];
-            }
+
         });
+
+        var allSorted = _.sortBy(wordsArr, function (grpItem) {
+          return -grpItem.score.hottnessScore;
+        });
+        if(allSorted.length > maxWords) {
+          allSorted = allSorted.slice(0, maxWords);
+        }
+        if(allSorted.length > 0){
+          var wordArr = [{
+            length: -1,
+            words: allSorted,
+            title: 'Best Scoring'
+          }];
+          words = wordArr.concat(words)
+
+        }
         return words;
     }
 
@@ -213,6 +226,7 @@ var scrabbleValues = {
             if (!arrItem) {
                 var obj = {
                     length: item.length,
+                    title: item.length + ' Letter Words',
                     words: []
                 };
                 toRet[len] = obj;
