@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 router.post('/search', function(req, res) {
   var searchType = req.body.searchType;
-  var searchQuery = req.body.searchQuery;
+  var searchQuery = req.body.searchQuery.toLowerCase();
 
   var params = [];
 

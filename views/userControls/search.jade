@@ -4,7 +4,7 @@ form(role='form' action="/search" method="post" class="form-horizontal")
         select(name="searchType" class="form-control" id="searchTypeDropdown")
             option(value="startswith") Starts With
             option(value="endswith") Ends With
-            option(value="contains" selected="1") Contains
+            option(value="contains" selected="1") Your Letters
     div.form-group.col-lg-4.col-sm-12
         div.input-group
             input.form-search(type='text' class='form-control' name='searchQuery' placeholder='Letters' value="#{word || ''}")
