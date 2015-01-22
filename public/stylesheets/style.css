@@ -3,15 +3,13 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.select-box
+{
+  background-color: #CFCFCF !important;
+}
+
 a {
   color: #00B7FF;
-}
-
-.word {
-}
-
-.wordblock {
-
 }
 
 .logo {
@@ -45,6 +43,8 @@ a {
 @media (max-width: 329px) {
   .container {
     width: 300px;
+    padding-left: 3px!important;
+    padding-right: 3px!important;
   }
   .navbar-brand img {
 

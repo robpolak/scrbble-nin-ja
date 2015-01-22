@@ -1,23 +1,22 @@
 h3#word-search Word Search
 form(role='form' action="/search" method="post" class="form-horizontal")
     div.form-group.col-lg-4.col-sm-12
-        select(name="searchType" class="form-control" id="searchTypeDropdown")
+        select(name="searchType" class="form-control select-box" id="searchTypeDropdown")
             option(value="startswith") Starts With
             option(value="endswith") Ends With
-            option(value="contains" selected="1") Your Letters
+            option(value="contains" selected="1") Letters
     div.form-group.col-lg-4.col-sm-12
         div.input-group
-            input.form-search(type='text' class='form-control' name='searchQuery' placeholder='Letters' value="#{word || ''}")
-            span.input-group-btn
-                a.btn.btn-success.btn-add-blank(href='#')
-                    i.fa.fa-star &nbsp; wild
             span.input-group-btn
                 a.btn.btn-danger.btn-clear
                     i.fa.fa-times
-    div.form-group.col-sm-12
-        div
-            button.btn.btn-success(type='submit')
-                i.fa.fa-search &nbsp; Search
+            input.form-search(type='text' class='form-control' name='searchQuery' placeholder='Letters' value="#{word || ''}")
+            span.input-group-btn
+                a.btn.btn-primary.btn-add-blank(href='javascript:void(0);')
+                    i.fa.fa-star &nbsp; wild
+            span.input-group-btn
+                button.btn.btn-success(type='submit')
+                    i.fa.fa-search &nbsp; go
     div.form-group
         include advancedSearch
 
