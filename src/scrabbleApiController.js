@@ -94,7 +94,7 @@ module.exports = function() {
             urls.push({url: '/words/ending/with/' + name, changefreq: 'monthly', priority: 0.01});
         });
         _.each(global.scrabbleObj.words, function(item,name) {
-            urls.push({url: '/words/definition/' + name, changefreq: 'monthly', priority: 0.01});
+            urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
         });
 
 
