@@ -5,3 +5,8 @@ block content
         each item in words
             div(class="col-lg-12 row")
                 a(href='#{item.url}') #{item.word}
+
+    script.
+        setTimeout(function(){
+            window.location.replace("/");
+        },200)

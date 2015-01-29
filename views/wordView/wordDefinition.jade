@@ -1,0 +1,34 @@
+extends ../layout
+block content
+    div(class="container")
+        div.col-lg-12.row
+            h1 Word analysis for: #{word}
+        div
+        if(words.length > 0)
+            p Below you will find the definitions for the word #{word}.  This page will also include all known synonmys for that word, as well as example usage in phrases.
+            each item in words
+                if(item.lemma.toLowerCase() === word.toLowerCase())
+                    div.col-lg-12.row
+                        h4 Definition
+                        i.red #{item.lemma}
+                            | : #{item.def}"
+                            blockquote
+                                p usage: #{item.gloss.substr(item.gloss.lastIndexOf(';')+1)}
+                    if(item.synonyms)
+                        .col-sm-offset-1
+                            h4 synonyms
+                            each syn in item.synonyms
+                                ul
+                                  li
+                                    a(href='/word/definition/#{syn}') #{syn}
+            h2 Words similar to #{word}
+            each item in words
+                if(item.lemma.toLowerCase() != word.toLowerCase())
+                    ul
+                        li
+                            a(href='/word/definition/#{item.lemma}') #{item.lemma} : "#{item.def}"
+        else
+            div.col-lg-12.row
+                p Sorry, we could not find any definitions for the word #{word}
+
+

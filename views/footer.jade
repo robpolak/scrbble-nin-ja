@@ -1,7 +1,7 @@
 .container
     div.row.col-lg-12
-        div(class="container")
-            div.fb-like(data-share="true" data-width="150" data-show-faces="true")
+        div(class="container" style="padding-top:10px; height:20px" )
+            div.fb-like(data-share="false" data-width="15px" data-show-faces="false" data-layout="button_count")
     .footer
         hr(style='margin: 30px 0 10px 0;')
         p Please note that Scrabble is a trademark of the © 2014 Hasbro corporation.  This site is intended as a guide to help scrabble players improve their scores!  Please don't sue me :)
@@ -9,6 +9,7 @@
             a(href='#') Scrabble.Ninja | 2014
             a(href='/words/start') | Words That Start With
             a(href='/words/end') | Words That End With
+
         script.
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -42,5 +43,6 @@
                 js.src = "//connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+
 
 block footer

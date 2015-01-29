@@ -88,11 +88,15 @@ module.exports = function() {
         urls.push({url: '/words/end', changefreq: 'daily', priority: 1});
 
         _.each(global.scrabbleObj.startsWith, function (item, name) {
-            urls.push({url: '/words/starting/with/' + name, changefreq: 'daily', priority: 0.5});
+            urls.push({url: '/words/starting/with/' + name, changefreq: 'monthly', priority: 0.01});
         });
         _.each(global.scrabbleObj.endsWith, function (item, name) {
-            urls.push({url: '/words/ending/with/' + name, changefreq: 'daily', priority: 0.5});
+            urls.push({url: '/words/ending/with/' + name, changefreq: 'monthly', priority: 0.01});
         });
+        _.each(global.scrabbleObj.words, function(item,name) {
+            urls.push({url: '/words/definition/' + name, changefreq: 'monthly', priority: 0.01});
+        });
+
 
         return urls;
     }

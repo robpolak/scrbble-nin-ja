@@ -21,15 +21,20 @@ block content
                                         td Words With Friends Score
                                 each wordObj in item.words
                                     tr
-                                        td #{wordObj.word}
+                                        td
+                                            a(href='/word/definition/#{wordObj.word}') #{wordObj.word}
                                         td #{wordObj.score.scrabbleScore}
                                         td #{wordObj.score.wwfScore}
+                    if item.length === -1
+                        ins.adsbygoogle(style="display:block" data-ad-client="ca-pub-5043209834432901" data-ad-slot="2959774078" data-ad-format="auto")
+                        script.
+                            (adsbygoogle = window.adsbygoogle || []).push({});
             else
                 h4 Sorry we could not find any word combinations :(
-        div We search the official scrabble dictionary for scrabble words starting with #{word} - we take the letter or word you enter, and generate all words starting with #{word}. In addition there is a list of Words that end with #{word}, words that contain #{word}, and Synonyms of #{word}.
+        div.clearfix
+        div We search the official scrabble dictionary for scrabble words starting with #{word} - we take the letter or word you enter, and generate all words starting with #{word}. In addition there is a list of Words that end with #{word}, words that contain #{word}, and Synonyms of #{word}.  Please do not use this site to cheat your opponents, as that defeats the purpose of the game.  This is meant as a reasearch tool to help impreove your scrabble game.
     script.
         $( document ).ready(function() {
-
             $('html, body').animate({
                 scrollTop: $("#word-search").offset().top - 60
             }, 100);

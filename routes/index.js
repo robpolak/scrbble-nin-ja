@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sm = require('sitemap');
 var apiController = require('../src/scrabbleApiController');
+var wordController = require('../src/wordController');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -144,6 +145,28 @@ router.get('/words/start', function(req, res) {
   var words = apiController.getStartsWithUrls();
   res.render('wordView/metaWords', { words: words});
 });
+
+function wordDefine(req,res) {
+  var word = req.params.word;
+  wordController.getWordDefinition(word, function(results) {
+    res.render('wordView/wordDefinition', { words: results, word: word});
+  });
+
+}
+
+router.get('/word/define/:word', function(req, res) {
+  wordDefine(req,res);
+});
+
+router.get('/word/definition/:word', function(req, res) {
+  wordDefine(req,res);
+});
+
+router.get('/word/synonyms/:word', function(req, res) {
+  wordDefine(req,res);
+});
+
+
 
 router.get('/words/end', function(req, res) {
   var words = apiController.getEndsWithUrls();
