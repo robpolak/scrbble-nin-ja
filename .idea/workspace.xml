@@ -70,11 +70,11 @@
       <file leaf-file-name="scrabbleApiController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30038023" vertical-offset="1457" max-vertical-offset="4318">
-              <caret line="95" column="62" selection-start-line="95" selection-start-column="62" selection-end-line="95" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.3973384" vertical-offset="1457" max-vertical-offset="4352">
+              <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
               <folding>
-                <element signature="e#3715#3955#0" expanded="false" />
-                <element signature="e#3988#4281#0" expanded="false" />
+                <element signature="e#3768#4008#0" expanded="false" />
+                <element signature="e#4041#4334#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -447,7 +447,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422547116547</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="asd">
+      <created>1422547231228</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1422547231228</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -924,11 +930,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30038023" vertical-offset="1457" max-vertical-offset="4318">
-          <caret line="95" column="62" selection-start-line="95" selection-start-column="62" selection-end-line="95" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.3973384" vertical-offset="1457" max-vertical-offset="4352">
+          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
           <folding>
-            <element signature="e#3715#3955#0" expanded="false" />
-            <element signature="e#3988#4281#0" expanded="false" />
+            <element signature="e#3768#4008#0" expanded="false" />
+            <element signature="e#4041#4334#0" expanded="false" />
           </folding>
         </state>
       </provider>
