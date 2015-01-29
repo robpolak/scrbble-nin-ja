@@ -138,7 +138,7 @@ var sitemap = sm.createSitemap ({
 
 router.get('/sitemap.xml', function(req, res) {
   res.set('Content-Type', 'text/xml');
-  res.write('<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84"><sitemap><loc>http://scrabble.ninja/sitemapmain.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapstart.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapend.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef1.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef2.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef3.xml</loc></sitemap></sitemapindex>')
+  res.write('<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84"><sitemap><loc>http://scrabble.ninja/sitemapmain.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapstart.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapend.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef1.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef2.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef3.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef4.xml</loc></sitemap></sitemapindex>')
   res.end();
 });
 
@@ -209,6 +209,18 @@ router.get('/sitemapdef3.xml', function(req, res) {
     urls: apiController.getSiteMaps('def3')
   });
   siteMapDef3.toXML( function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send( xml );
+  });
+});
+
+router.get('/sitemapdef4.xml', function(req, res) {
+  var siteMapDef4 = sm.createSitemap ({
+    hostname: 'http://scrabble.ninja',
+    cacheTime: 2600000,        // 600 sec - cache purge period
+    urls: apiController.getSiteMaps('def4')
+  });
+  siteMapDef4.toXML( function (xml) {
     res.header('Content-Type', 'application/xml');
     res.send( xml );
   });

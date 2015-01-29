@@ -104,25 +104,33 @@ module.exports = function() {
 
         if (type.toLowerCase() === 'def1') {
             _.each(global.scrabbleObj.words, function (item, name) {
-                if (item.length < 12 && item.charCodeAt(0) < 106) {
+                if (item.length < 13 && item.charCodeAt(0) < 104) {
                     urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
                 }
             });
         }
         if (type.toLowerCase() === 'def2') {
             _.each(global.scrabbleObj.words, function (item, name) {
-                if (item.length < 12 && item.charCodeAt(0) > 106 && item.charCodeAt(0) < 117) {
+                if (item.length < 13 && item.charCodeAt(0) > 104 && item.charCodeAt(0) < 109) {
                     urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
                 }
             });
         }
         if (type.toLowerCase() === 'def3') {
             _.each(global.scrabbleObj.words, function (item, name) {
-                if (item.length < 12 && item.charCodeAt(0) > 117) {
+                if (item.length < 13 && item.charCodeAt(0) > 109 && item.charCodeAt(0) < 115) {
                     urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
                 }
             });
         }
+        if (type.toLowerCase() === 'def4') {
+            _.each(global.scrabbleObj.words, function (item, name) {
+                if (item.length < 13 && item.charCodeAt(0) > 115) {
+                    urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
+                }
+            });
+        }
+
 
         return urls;
     }
