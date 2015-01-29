@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5c676c84-52c1-49f4-9f61-39e12a5e8895" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scrabbleApiController.js" afterPath="$PROJECT_DIR$/src/scrabbleApiController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scrbble-nin-ja.iws" />
@@ -60,12 +61,11 @@
       <file leaf-file-name="scrabbleApiController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1463" max-vertical-offset="4675">
-              <caret line="125" column="64" selection-start-line="125" selection-start-column="64" selection-end-line="125" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1171" max-vertical-offset="4777">
+              <caret line="83" column="29" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="29" />
               <folding>
-                <element signature="e#2409#3100#0" expanded="false" />
-                <element signature="e#5208#5448#0" expanded="false" />
-                <element signature="e#5481#5774#0" expanded="false" />
+                <element signature="e#4783#5023#0" expanded="false" />
+                <element signature="e#5056#5349#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -74,8 +74,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33509701" vertical-offset="1017" max-vertical-offset="3315">
-              <caret line="140" column="726" selection-start-line="140" selection-start-column="726" selection-end-line="140" selection-end-column="726" />
+            <state vertical-scroll-proportion="0.63492066" vertical-offset="1017" max-vertical-offset="3519">
+              <caret line="150" column="13" selection-start-line="150" selection-start-column="13" selection-end-line="150" selection-end-column="13" />
               <folding>
                 <element signature="e#364#1240#0" expanded="false" />
                 <element signature="n#!!block;n#getFilter#0" expanded="false" />
@@ -455,7 +455,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422548876607</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="asd">
+      <created>1422549058491</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1422549058491</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -893,6 +899,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="392" max-vertical-offset="1003">
+          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/wordView/wordDefinition.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
@@ -903,28 +917,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1463" max-vertical-offset="4675">
-          <caret line="125" column="64" selection-start-line="125" selection-start-column="64" selection-end-line="125" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1171" max-vertical-offset="4777">
+          <caret line="83" column="29" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="29" />
           <folding>
-            <element signature="e#2409#3100#0" expanded="false" />
-            <element signature="e#5208#5448#0" expanded="false" />
-            <element signature="e#5481#5774#0" expanded="false" />
+            <element signature="e#4783#5023#0" expanded="false" />
+            <element signature="e#5056#5349#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="392" max-vertical-offset="1003">
-          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33509701" vertical-offset="1017" max-vertical-offset="3315">
-          <caret line="140" column="726" selection-start-line="140" selection-start-column="726" selection-end-line="140" selection-end-column="726" />
+        <state vertical-scroll-proportion="0.63492066" vertical-offset="1017" max-vertical-offset="3519">
+          <caret line="150" column="13" selection-start-line="150" selection-start-column="13" selection-end-line="150" selection-end-column="13" />
           <folding>
             <element signature="e#364#1240#0" expanded="false" />
             <element signature="n#!!block;n#getFilter#0" expanded="false" />

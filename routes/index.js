@@ -138,8 +138,20 @@ var sitemap = sm.createSitemap ({
 
 router.get('/sitemap.xml', function(req, res) {
   res.set('Content-Type', 'text/xml');
-  res.write('<<sitemap><loc>http://scrabble.ninja/sitemapstart.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapend.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef1.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef2.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef3.xml</loc></sitemap><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>http://scrabble.ninja/</loc><changefreq>daily</changefreq><priority>1</priority></url><url><loc>http://scrabble.ninja/words/start</loc><changefreq>daily</changefreq><priority>1</priority></url><url><loc>http://scrabble.ninja/words/end</loc><changefreq>daily</changefreq><priority>1</priority></url></urlset>')
+  res.write('<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84"><sitemap><loc>http://scrabble.ninja/sitemapmain.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapstart.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapend.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef1.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef2.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef3.xml</loc></sitemap></sitemapindex>')
   res.end();
+});
+
+router.get('/sitemapmain.xml', function(req, res) {
+  var sitemapmain = sm.createSitemap ({
+    hostname: 'http://scrabble.ninja',
+    cacheTime: 2600000,        // 600 sec - cache purge period
+    urls: apiController.getSiteMapUrls()
+  });
+  sitemapmain.toXML( function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send( xml );
+  });
 });
 
 router.get('/sitemapstart.xml', function(req, res) {

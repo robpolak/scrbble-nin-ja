@@ -86,11 +86,6 @@ module.exports = function() {
         urls.push({url: '/', changefreq: 'daily', priority: 1});
         urls.push({url: '/words/start', changefreq: 'daily', priority: 1});
         urls.push({url: '/words/end', changefreq: 'daily', priority: 1});
-        urls.push({url: '/sitemapstart.xml', changefreq: 'monthly', priority: 0.01});
-        urls.push({url: '/sitemapend.xml', changefreq: 'monthly', priority: 0.01});
-        urls.push({url: '/sitemapdef1.xml', changefreq: 'monthly', priority: 0.01});
-        urls.push({url: '/sitemapdef2.xml', changefreq: 'monthly', priority: 0.01});
-        urls.push({url: '/sitemapdef3.xml', changefreq: 'monthly', priority: 0.01});
         return urls;
     }
     function getSiteMaps(type) {
