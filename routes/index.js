@@ -134,12 +134,74 @@ var sitemap = sm.createSitemap ({
   urls: apiController.getSiteMapUrls()
 });
 
+
+
 router.get('/sitemap.xml', function(req, res) {
-  sitemap.toXML( function (xml) {
+  res.set('Content-Type', 'text/xml');
+  res.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>http://scrabble.ninja/sitemapstart.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapend.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef1.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef2.xml</loc></sitemap><sitemap><loc>http://scrabble.ninja/sitemapdef3.xml</loc></sitemap><url><loc>http://scrabble.ninja/</loc><changefreq>daily</changefreq><priority>1</priority></url><url><loc>http://scrabble.ninja/words/start</loc><changefreq>daily</changefreq><priority>1</priority></url><url><loc>http://scrabble.ninja/words/end</loc><changefreq>daily</changefreq><priority>1</priority></url></urlset>')
+  res.end();
+});
+
+router.get('/sitemapstart.xml', function(req, res) {
+  var sitemapstart = sm.createSitemap ({
+    hostname: 'http://scrabble.ninja',
+    cacheTime: 2600000,        // 600 sec - cache purge period
+    urls: apiController.getSiteMaps('start')
+  });
+  sitemapstart.toXML( function (xml) {
     res.header('Content-Type', 'application/xml');
     res.send( xml );
   });
 });
+
+router.get('/sitemapend.xml', function(req, res) {
+  var sitemapend = sm.createSitemap ({
+    hostname: 'http://scrabble.ninja',
+    cacheTime: 2600000,        // 600 sec - cache purge period
+    urls: apiController.getSiteMaps('end')
+  });
+  sitemapend.toXML( function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send( xml );
+  });
+});
+
+router.get('/sitemapdef1.xml', function(req, res) {
+  var siteMapDef1 = sm.createSitemap ({
+    hostname: 'http://scrabble.ninja',
+    cacheTime: 2600000,        // 600 sec - cache purge period
+    urls: apiController.getSiteMaps('def1')
+  });
+  siteMapDef1.toXML( function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send( xml );
+  });
+});
+
+router.get('/sitemapdef2.xml', function(req, res) {
+  var siteMapDef2 = sm.createSitemap ({
+    hostname: 'http://scrabble.ninja',
+    cacheTime: 2600000,        // 600 sec - cache purge period
+    urls: apiController.getSiteMaps('def2')
+  });
+  siteMapDef2.toXML( function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send( xml );
+  });
+});
+
+router.get('/sitemapdef3.xml', function(req, res) {
+  var siteMapDef3 = sm.createSitemap ({
+    hostname: 'http://scrabble.ninja',
+    cacheTime: 2600000,        // 600 sec - cache purge period
+    urls: apiController.getSiteMaps('def3')
+  });
+  siteMapDef3.toXML( function (xml) {
+    res.header('Content-Type', 'application/xml');
+    res.send( xml );
+  });
+});
+
 
 router.get('/words/start', function(req, res) {
   var words = apiController.getStartsWithUrls();

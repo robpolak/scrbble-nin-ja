@@ -86,19 +86,48 @@ module.exports = function() {
         urls.push({url: '/', changefreq: 'daily', priority: 1});
         urls.push({url: '/words/start', changefreq: 'daily', priority: 1});
         urls.push({url: '/words/end', changefreq: 'daily', priority: 1});
+        urls.push({url: '/sitemapstart.xml', changefreq: 'monthly', priority: 0.01});
+        urls.push({url: '/sitemapend.xml', changefreq: 'monthly', priority: 0.01});
+        urls.push({url: '/sitemapdef1.xml', changefreq: 'monthly', priority: 0.01});
+        urls.push({url: '/sitemapdef2.xml', changefreq: 'monthly', priority: 0.01});
+        urls.push({url: '/sitemapdef3.xml', changefreq: 'monthly', priority: 0.01});
+        return urls;
+    }
+    function getSiteMaps(type) {
+        var urls = [];
+        if (type.toLowerCase() === 'start') {
+            _.each(global.scrabbleObj.startsWith, function (item, name) {
+                urls.push({url: '/words/starting/with/' + name, changefreq: 'monthly', priority: 0.01});
+            });
+        }
 
-        _.each(global.scrabbleObj.startsWith, function (item, name) {
-            urls.push({url: '/words/starting/with/' + name, changefreq: 'monthly', priority: 0.01});
-        });
-        _.each(global.scrabbleObj.endsWith, function (item, name) {
-            urls.push({url: '/words/ending/with/' + name, changefreq: 'monthly', priority: 0.01});
-        });
-        _.each(global.scrabbleObj.words, function(item,name) {
-            if(item.length < 12) {
-                urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
-            }
-        });
+        if (type.toLowerCase() === 'end') {
+            _.each(global.scrabbleObj.endsWith, function (item, name) {
+                urls.push({url: '/words/ending/with/' + name, changefreq: 'monthly', priority: 0.01});
+            });
+        }
 
+        if (type.toLowerCase() === 'def1') {
+            _.each(global.scrabbleObj.words, function (item, name) {
+                if (item.length < 12 && item.charCodeAt(0) < 106) {
+                    urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
+                }
+            });
+        }
+        if (type.toLowerCase() === 'def2') {
+            _.each(global.scrabbleObj.words, function (item, name) {
+                if (item.length < 12 && item.charCodeAt(0) > 106 && item.charCodeAt(0) < 117) {
+                    urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
+                }
+            });
+        }
+        if (type.toLowerCase() === 'def3') {
+            _.each(global.scrabbleObj.words, function (item, name) {
+                if (item.length < 12 && item.charCodeAt(0) > 117) {
+                    urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
+                }
+            });
+        }
 
         return urls;
     }
@@ -299,6 +328,7 @@ var scrabbleValues = {
         findWordsContaining: findWordsContaining,
         getSiteMapUrls: getSiteMapUrls,
         getStartsWithUrls:getStartsWithUrls,
-        getEndsWithUrls: getEndsWithUrls
+        getEndsWithUrls: getEndsWithUrls,
+        getSiteMaps:getSiteMaps
     };
 }();
