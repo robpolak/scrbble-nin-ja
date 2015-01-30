@@ -6,7 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var fileController = require('./src/fileController');
+var scrabbleFileController = require('./src/scrabbleFileGenerator');
 var app = express();
+
+loadFile();
+
+global.scrabbleObj = {
+    startsWith: {},
+    endsWith: {},
+    words: []
+};
+
 
 var checkDomain = function(req, res, next){
     if(req && req.headers && req.headers.host) {
@@ -20,9 +30,6 @@ var checkDomain = function(req, res, next){
     next();
 }
 app.use(checkDomain);
-
-fileController.readCompressedFile(path.join(__dirname, '/cache/cachedScrabble.js.gz'), function(scrabbleObj) {
-    global.scrabbleObj = scrabbleObj;
 
     var routes = require('./routes/index');
 
@@ -76,12 +83,14 @@ fileController.readCompressedFile(path.join(__dirname, '/cache/cachedScrabble.js
     var server = app.listen(app.get('port'), function () {
         console.log('Express server listening on port ' + server.address().port);
     });
-});
 
+    function loadFile(){
+        var scrabbleController = require('./src/scrabbleFileGenerator');
+        var path = require('path');
+        scrabbleController.loadFile(path.join(__dirname, '/scrabble-files/wwf.txt'));
+    }
 /*
  * Generate Scrabble File
  *
- var scrabbleController = require('./src/scrabbleFileGenerator');
- var path = require('path');
- scrabbleController.loadFile(path.join(__dirname, '/scrabble-files/wwf.txt'));
+
  //////////////////////// */

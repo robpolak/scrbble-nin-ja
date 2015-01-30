@@ -270,9 +270,11 @@ function getMeta(search, prettyQuery) {
   keywords.push('Words that '+prettyQuery+' '+search);
   if(prettyQuery === 'start with') {
     keywords.push('Words starting with '+search);
+    keywords.push('Words that start with '+search);
   }
   if(prettyQuery === 'end with') {
     keywords.push('Words ending with '+search);
+    keywords.push('Words that end with '+search);
   }
   return {
     description: description,

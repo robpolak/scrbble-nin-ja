@@ -4,22 +4,17 @@ var _ = require('underscore');
 var ScrabbleFile = function() {
 
 }
-var wordMatrix = {
-    startsWith: {},
-    endsWith: {},
-    words: []
-};
 
 function parsefile() {
-    _.each(wordMatrix.words, function(word) {
+    _.each(global.scrabbleObj.words, function(word) {
         //parseWordIntoMatrix(word);
         addXWiths(word);
     });
-    saveFile();
+    console.log('Done Loading!');
 }
 
 function saveFile() {
-    fileController.writeAndCompressFile(JSON.stringify(wordMatrix), 'cachedScrabble.js');
+    fileController.writeAndCompressFile(JSON.stringify(global.scrabbleObj), 'cachedScrabble.js');
 }
 
 function matrixWord(matrix, word) {
@@ -89,8 +84,8 @@ function addXWiths(word) {
         var endLet = word[word.length - x - 1];
         startsWith = startsWith + stLet;
         endsWith = endLet + endsWith;
-        updateXwith(wordMatrix.startsWith, startsWith, word, false);
-        updateXwith(wordMatrix.endsWith, endsWith, word, true);
+        updateXwith(global.scrabbleObj.startsWith, startsWith, word, false);
+        updateXwith(global.scrabbleObj.endsWith, endsWith, word, true);
     }
 }
 
@@ -115,7 +110,7 @@ function parseWordIntoMatrix(word) {
 
 ScrabbleFile.prototype.loadFile = function(fileName) {
     fileController.loadFileIntoArray(fileName, function(data) {
-        wordMatrix.words = data;
+        global.scrabbleObj.words = data;
         parsefile();
     })
 };
