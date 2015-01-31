@@ -34,7 +34,9 @@ block content
         div We search the official scrabble dictionary for scrabble words starting with #{word} - we take the letter or word you enter, and generate all words starting with #{word}. In addition there is a list of Words that end with #{word}, words that contain #{word}, and Synonyms of #{word}.  Please do not use this site to cheat your opponents, as that defeats the purpose of the game.  This is meant as a reasearch tool to help impreove your scrabble game.
     script.
         $( document ).ready(function() {
-            $('html, body').animate({
-                scrollTop: $("#word-search").offset().top - 60
-            }, 100);
+            setTimeout(function() {
+                $('html, body').animate({
+                    scrollTop: $("#word-search").offset().top + 300
+                }, 100);
+            },100);
         });
