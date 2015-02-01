@@ -105,21 +105,21 @@ module.exports = function() {
         if (type.toLowerCase() === 'def1') {
             _.each(global.scrabbleObj.words, function (item, name) {
                 if (item.length < 13 && item.charCodeAt(0) < 100 && urls.length < 49231) {
-                    urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
+                    urls.push({url: '/word/definition/' + item, changefreq: 'monthly', priority: 0.01});
                 }
             });
         }
         if (type.toLowerCase() === 'def2') {
             _.each(global.scrabbleObj.words, function (item, name) {
                 if (item.length < 13 && item.charCodeAt(0) > 100 && item.charCodeAt(0) < 107 && urls.length < 49231) {
-                    urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
+                    urls.push({url: '/word/definition/' + item, changefreq: 'monthly', priority: 0.01});
                 }
             });
         }
         if (type.toLowerCase() === 'def3') {
             _.each(global.scrabbleObj.words, function (item, name) {
                 if (item.length < 13 && item.charCodeAt(0) > 107 && item.charCodeAt(0) < 115 && urls.length < 49231) {
-                    urls.push({url: '/words/definition/' + item, changefreq: 'monthly', priority: 0.01});
+                    urls.push({url: '/word/definition/' + item, changefreq: 'monthly', priority: 0.01});
                 }
             });
         }

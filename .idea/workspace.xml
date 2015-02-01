@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c676c84-52c1-49f4-9f61-39e12a5e8895" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/wordView/wordView.jade" afterPath="$PROJECT_DIR$/views/wordView/wordView.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scrabbleApiController.js" afterPath="$PROJECT_DIR$/src/scrabbleApiController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scrbble-nin-ja.iws" />
@@ -50,18 +50,21 @@
       <file leaf-file-name="scrabbleApiController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="2703">
-              <caret line="139" column="33" selection-start-line="139" selection-start-column="15" selection-end-line="139" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="1666">
+              <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
               <folding>
                 <element signature="e#111#570#0" expanded="false" />
                 <element signature="e#619#1076#0" expanded="false" />
                 <element signature="e#1133#2040#0" expanded="false" />
                 <element signature="e#2084#2377#0" expanded="false" />
                 <element signature="e#2409#2675#0" expanded="false" />
-                <element signature="e#2707#4734#0" expanded="false" />
-                <element signature="e#5010#5213#0" expanded="false" />
-                <element signature="e#5236#5476#0" expanded="false" />
-                <element signature="e#5509#5802#0" expanded="false" />
+                <element signature="e#5007#5210#0" expanded="false" />
+                <element signature="e#5233#5473#0" expanded="false" />
+                <element signature="e#5506#5799#0" expanded="false" />
+                <element signature="e#5833#6327#0" expanded="false" />
+                <element signature="e#6369#7082#0" expanded="false" />
+                <element signature="e#7124#8292#0" expanded="false" />
+                <element signature="e#8334#9132#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -87,11 +90,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wordView.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wordView.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/wordView/wordView.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7597173" vertical-offset="233" max-vertical-offset="816">
+            <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="816">
               <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="metaWords.jade" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/wordView/metaWords.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.29360968" vertical-offset="0" max-vertical-offset="579">
+              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -102,16 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.36" vertical-offset="0" max-vertical-offset="578">
-              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -169,7 +172,6 @@
         <option value="$PROJECT_DIR$/views/wordView/metaWords.jade" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/src/wordController.js" />
-        <option value="$PROJECT_DIR$/src/scrabbleApiController.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/scrabble-files/wwf.txt" />
         <option value="$PROJECT_DIR$/server.js" />
@@ -178,6 +180,7 @@
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/views/footer.jade" />
         <option value="$PROJECT_DIR$/views/wordView/wordView.jade" />
+        <option value="$PROJECT_DIR$/src/scrabbleApiController.js" />
       </list>
     </option>
   </component>
@@ -631,7 +634,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422713476803</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="asd">
+      <created>1422713747533</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1422713747533</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -719,7 +728,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="177" />
+      <option name="time" value="178" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -968,14 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/wordView/metaWords.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/header.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
@@ -1016,19 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3156" max-vertical-offset="3757">
-          <caret line="272" column="35" selection-start-line="272" selection-start-column="35" selection-end-line="272" selection-end-column="35" />
-          <folding>
-            <element signature="e#364#1240#0" expanded="false" />
-            <element signature="n#!!block;n#getFilter#0" expanded="false" />
-            <element signature="n#!!block;n#startsWith#0" expanded="false" />
-            <element signature="n#!!block;n#endsWith#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scrabble-files/wwf.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2943465">
@@ -1050,24 +1038,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1717">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="2703">
-          <caret line="139" column="33" selection-start-line="139" selection-start-column="15" selection-end-line="139" selection-end-column="33" />
-          <folding>
-            <element signature="e#111#570#0" expanded="false" />
-            <element signature="e#619#1076#0" expanded="false" />
-            <element signature="e#1133#2040#0" expanded="false" />
-            <element signature="e#2084#2377#0" expanded="false" />
-            <element signature="e#2409#2675#0" expanded="false" />
-            <element signature="e#2707#4734#0" expanded="false" />
-            <element signature="e#5010#5213#0" expanded="false" />
-            <element signature="e#5236#5476#0" expanded="false" />
-            <element signature="e#5509#5802#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1111,10 +1081,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3156" max-vertical-offset="3757">
+          <caret line="272" column="35" selection-start-line="272" selection-start-column="35" selection-end-line="272" selection-end-column="35" />
+          <folding>
+            <element signature="e#364#1240#0" expanded="false" />
+            <element signature="n#!!block;n#getFilter#0" expanded="false" />
+            <element signature="n#!!block;n#startsWith#0" expanded="false" />
+            <element signature="n#!!block;n#endsWith#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scrabbleApiController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="1666">
+          <caret line="121" column="42" selection-start-line="121" selection-start-column="42" selection-end-line="121" selection-end-column="42" />
+          <folding>
+            <element signature="e#111#570#0" expanded="false" />
+            <element signature="e#619#1076#0" expanded="false" />
+            <element signature="e#1133#2040#0" expanded="false" />
+            <element signature="e#2084#2377#0" expanded="false" />
+            <element signature="e#2409#2675#0" expanded="false" />
+            <element signature="e#5007#5210#0" expanded="false" />
+            <element signature="e#5233#5473#0" expanded="false" />
+            <element signature="e#5506#5799#0" expanded="false" />
+            <element signature="e#5833#6327#0" expanded="false" />
+            <element signature="e#6369#7082#0" expanded="false" />
+            <element signature="e#7124#8292#0" expanded="false" />
+            <element signature="e#8334#9132#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/wordView/wordView.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7597173" vertical-offset="233" max-vertical-offset="816">
+        <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="816">
           <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/wordView/metaWords.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29360968" vertical-offset="0" max-vertical-offset="579">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
           <folding />
         </state>
       </provider>
