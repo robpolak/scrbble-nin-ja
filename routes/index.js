@@ -121,13 +121,6 @@ router.get('/contains/:word', function(req, res) {
   res.render('wordView/wordView', { word: word, results: result, title: title, prettyQuery:'contains', meta: getMeta(word,prettyQuery), filter: getFilter(req)});
 });
 
-function getFilters(req,res) {
-  var filterObj = {};
-  if(req.query.startsWith) {
-    filterObj.push()
-  }
-}
-
 var sitemap = sm.createSitemap ({
   hostname: 'http://scrabble.ninja',
   cacheTime: 2600000,        // 600 sec - cache purge period
@@ -234,8 +227,9 @@ router.get('/words/start', function(req, res) {
 
 function wordDefine(req,res) {
   var word = req.params.word;
+  var title = 'Definition: ' + word;
   wordController.getWordDefinition(word, function(results) {
-    res.render('wordView/wordDefinition', { words: results, word: word});
+    res.render('wordView/wordDefinition', { words: results, word: word,  meta: getMeta(word,'define'), title: title});
   });
 
 }
@@ -264,7 +258,7 @@ router.get('/words/end', function(req, res) {
 
 
 function getMeta(search, prettyQuery) {
-  description = 'Find Scrabble Words that '+prettyQuery+' '+search+', words '+prettyQuery+'ing '+search+'';
+  var description = 'Find Scrabble Words that '+prettyQuery+' '+search+', words '+prettyQuery+'ing '+search+'';
   var keywords = [];
   keywords.push(search);
   keywords.push('Words that '+prettyQuery+' '+search);
@@ -275,6 +269,11 @@ function getMeta(search, prettyQuery) {
   if(prettyQuery === 'end with') {
     keywords.push('Words ending with '+search);
     keywords.push('Words that end with '+search);
+  }
+  if(prettyQuery === 'define') {
+    keywords.push('Word definition ' + search);
+    keywords.push('definition of the word '+search);
+    description = 'Find the definition of the word ' + search + ' '
   }
   return {
     description: description,
