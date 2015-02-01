@@ -238,6 +238,11 @@ router.get('/word/define/:word', function(req, res) {
   wordDefine(req,res);
 });
 
+router.get('/words/definition/:word', function(req, res) {
+  wordDefine(req,res);
+});
+
+
 router.get('/word/definition/:word', function(req, res) {
   wordDefine(req,res);
 });
