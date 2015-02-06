@@ -1,5 +1,7 @@
 .container
     div.row.col-lg-12
+        <!--a(href="http://www.addthis.com/bookmark.php?v=20" class="addthis_button" src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" border="0" alt="Share")-->
+    div.row.col-lg-12
         div(class="container" style="padding-top:10px; height:20px" )
             div.fb-like(data-share="false" data-width="15px" data-show-faces="false" data-layout="button_count")
     .footer
@@ -11,6 +13,9 @@
             a(href='/words/end') | Words That End With
 
         script.
+            var addthis_config = {
+                pubid: "ra-54d40b297635df34"
+            };
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
                 i[r] = i[r] || function () {
