@@ -1,9 +1,4 @@
 .container
-    div.row.col-lg-12
-        <!--a(href="http://www.addthis.com/bookmark.php?v=20" class="addthis_button" src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" border="0" alt="Share")-->
-    div.row.col-lg-12
-        div(class="container" style="padding-top:10px; height:20px" )
-            div.fb-like(data-share="false" data-width="15px" data-show-faces="false" data-layout="button_count")
     .footer
         hr(style='margin: 30px 0 10px 0;')
         p Please note that Scrabble is a trademark of the © 2014 Hasbro corporation.  This site is intended as a guide to help scrabble players improve their scores!  Please don't sue me :)
@@ -30,24 +25,6 @@
             ga('create', 'UA-3285660-6', 'auto');
             ga('send', 'pageview');
 
-            //FB
-            window.fbAsyncInit = function () {
-                FB.init({
-                    appId: '552496558187260',
-                    xfbml: true,
-                    version: 'v2.2'
-                });
-            };
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
             (adsbygoogle = window.adsbygoogle || []).push({});
 
 block footer
