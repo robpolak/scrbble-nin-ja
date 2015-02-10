@@ -3,10 +3,11 @@ extends ../layout
 block content
     div(class="container")
         h1 #{title}
-        div.row.col-lg-12
+        div.row.col-lg-12.clearfix
             div(class="addthis_sharing_toolbox")
-        h4
-            | A list of words that #{prettyQuery} with #{word} (words which are the partial form of #{word}).
+        div.row.col-lg-12.clearfix
+            h4
+                | A list of words that #{prettyQuery} with #{word} (words which are the partial form of #{word}).
         include ../userControls/search
         div#results
             h2 Word Search Results
@@ -42,4 +43,4 @@ block content
                     scrollTop: $("#word-search").offset().top + 300
                 }, 100);
             },100);
-        });*/
+        });*
