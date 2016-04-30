@@ -4,12 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var compression = require('compression');
 
 var fileController = require('./src/fileController');
 var scrabbleFileController = require('./src/scrabbleFileGenerator');
 var app = express();
+app.use(compression());
 
 loadFile();
+
+var logging = require('./src/core/logging');
+global._logger = logging;
+
+var config = require('./src/core/configuration');
+global._config = config.getSettings();
 
 global.scrabbleObj = {
     startsWith: {},
@@ -77,8 +85,28 @@ app.use(checkDomain);
     });
 
 
+    //get port from config
+    var port = global._config.port;
+    port = normalizePort(port || '3000');
+    app.set('port', port);
 
-    app.set('port', process.env.PORT || 3000);
+
+
+    function normalizePort(val) {
+        var port = parseInt(val, 10);
+
+        if (isNaN(port)) {
+            // named pipe
+            return val;
+        }
+
+        if (port >= 0) {
+            // port number
+            return port;
+        }
+
+        return false;
+    }
 
     var server = app.listen(app.get('port'), function () {
         console.log('Express server listening on port ' + server.address().port);
@@ -89,8 +117,3 @@ app.use(checkDomain);
         var path = require('path');
         scrabbleController.loadFile(path.join(__dirname, '/scrabble-files/wwf.txt'));
     }
-/*
- * Generate Scrabble File
- *
-
- //////////////////////// */
